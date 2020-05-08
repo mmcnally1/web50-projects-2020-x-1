@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Book Info{% endblock %}
+
+{% block body %}
+    <div>
+        <h3 style="margin-left: 30px">Book Information</h3>
+        <ul>
+            <li style="margin-left: 30px">ISBN: {{isbn}}</li>
+            <li style="margin-left: 30px">Title: {{title}}</li>
+            <li style="margin-left: 30px">Author: {{author}}</li>
+            <li style="margin-left: 30px">Year: {{year}}</li>
+            <li style="margin-left: 30px">Goodreads Rating: {{avg_rating}}</li>
+            <li style="margin-left: 30px">Number of Ratings: {{rating_count}}</li>
+        </ul>
+    </div>
+    <div>
+        <h3 style="margin-left: 30px">Reviews</h3>
+        <ul>
+            <li style="margin-left: 30px">User Rating: {{rating}}</li>
+            <li style="margin-left: 30px">User Reviews</li>
+                <ul>
+                {% for row in reviews %}
+                    <li style="margin-left: 30px; overflow-wrap: break-word">{{row["user_review"]}}</li>
+                {% endfor %}
+                </ul>
+        </ul>
+    </div>
+    <div>
+    <h3 style="margin-left: 30px">Leave a Review</h3>
+    <form action="/book/{{isbn}}" method="post">
+        <div class="form-group">
+            <select class="btn btn-secondary dropdown-toggle" style="margin-left: 30px" name="rating">
+                <option selected="selected" disabled>Select</option>
+                <option name="one">1</option>
+                <option name="two">2</option>
+                <option name="three">3</option>
+                <option name="four">4</option>
+                <option name="five">5</option>
+            <div class="form-group">
+                <textarea autocomplete="off" autofocus class="form-control" style="margin-top: 10px; margin-left: 30px; width: auto" name="review" placeholder="Your Review" type="text"></textarea>
+            </div>
+            <button class="btn btn-primary" style="margin-left: 30px" type="submit">Submit</button>
+        </div>
+    </form>
+    </div>
+
+{% endblock %}

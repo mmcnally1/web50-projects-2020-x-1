@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center">Search</h1>
+    <div class="text-center">
+        <form action="/" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="book" placeholder="Search by ISBN, title, or author" type="text">
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}

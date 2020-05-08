@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}Book Info{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center">API Documentation</h1>
+        <p style="margin-left: auto; margin-right: auto; width: 50%">
+            If you make a request to /api/isbn, where isbn is the book's ISBN,
+            you will receive a JSON object containing the book's ISBN, title,
+            author, year published, average score (1-5 scale), and number of 
+            ratings in the format of:</p>
+        <div style="background-color: azure; margin-left: auto; margin-right: auto; width: 15%">
+                <p>{"isbn": "0553803700",</p>
+                <p>"title": "I, Robot",</p>
+                <p>"author": "Isaac Asimov",</p> 
+                <p>"year": "1950",</p>
+                <p>"rating": "4.8",</p>
+                <p>"num_reviews": "15"}</p>
+            </p>
+        </div>
+{% endblock %}
